@@ -16,4 +16,4 @@ Now that we are familiar with the processes, lets dive into the issue faced with
 2. Commodity is listed above each section. 
 3. Totals for each items in an aggregated format, summed up for the entire week. 
 
-
+[Example Image](https://github.com/sjrojanooo/parsing-excel-files/blob/main/example_image.png)
