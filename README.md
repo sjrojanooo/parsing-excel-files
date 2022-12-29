@@ -1,6 +1,6 @@
 # parsing-excel-files
 Excel File parsing with Pandas
-A while back I was confronted with an issue that made validating a scraped report against a finalized report a manual task. I was faced with not only the way the documents format was, but also with the naming conventions that each product had under a given commodity. A little back-story before we dive in. The business followed a specific process when it came to reporting harvested vegetable products that were turned into the cooler, and it can be broken down in the following steps. The items reported in automated report, were not normalized to how the items reported from the updated count. So, even if you wanted to join map items by the name, nearly everything would end up unmatched. 
+A while back I was confronted with an issue that made validating a scraped report against a finalized report a manual task. I was faced with not only the way the documents format was, but also with the naming conventions that each product had under a given commodity. A little back-story before we dive in. The business followed a specific process when it came to reporting harvested vegetable products that were turned into the cooler, and it can be broken down in the following steps. *The items reported in automated report, were not normalized to how the items reported from the updated count. So, even if you wanted to join map items by the name, nearly everything would end up unmatched*. 
 
 # Cooler Reporting / Validation
 1. Recieve an automated report for what was physically turned into the cooler for the given day. 
@@ -21,3 +21,4 @@ Now that we are familiar with the processes, lets dive into the issue faced with
 The goal is to convert the formatted document in the image above to achieve the format of the image below.
 
 ![Image](https://github.com/sjrojanooo/parsing-excel-files/blob/main/images/reformatted_report.png)
+
