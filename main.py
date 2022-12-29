@@ -6,7 +6,7 @@ import importlib
 constants = importlib.import_module('constants')
 
 # locate the date reported anywhere on the page, in case of any format changes. 
-def capture_report_date(updated_report_df: DataFrame):
+def capture_report_date(updated_report_df: DataFrame) -> str:
     report_date = None
     for i in range(0, len(updated_report_df)): 
         for column in updated_report_df.columns: 
@@ -20,7 +20,7 @@ def capture_report_date(updated_report_df: DataFrame):
 
 # will capture commodity titles at each index level anywhere on the excel file. 
 # return tuples/set of commodity and index
-def identify_commodity_title_locations(updated_report_df: DataFrame, commodity_list: list):
+def identify_commodity_title_locations(updated_report_df: DataFrame, commodity_list: list) -> list:
     commodity_and_index_set = []; 
     for i in range(0, len(updated_report_df)):
         for column in updated_report_df.columns: 
