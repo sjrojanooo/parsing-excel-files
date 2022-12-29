@@ -17,7 +17,7 @@ def capture_report_date(updated_report_df: DataFrame) -> str:
 
 # will capture commodity titles at each index level anywhere on the excel file. 
 # return tuples/set of commodity and index
-def identify_commodity_title_locations(updated_report_df: DataFrame, commodity_list: list) -> list:
+def identify_commodity_title_locations(updated_report_df: DataFrame, commodity_list: list) -> DataFrame:
     commodity_and_index_set = []; 
     for i in range(0, len(updated_report_df)):
         for column in updated_report_df.columns: 
@@ -25,7 +25,7 @@ def identify_commodity_title_locations(updated_report_df: DataFrame, commodity_l
             if commodity in commodity_list: 
                 commodity_captured_set = (i, commodity) 
                 commodity_and_index_set.append(commodity_captured_set) 
-    return commodity_and_index_set
+    return DataFrame(commodity_and_index_set)
 
 # capture indexes between next commodity
 def generate_index_dataframe(product_df: DataFrame) -> DataFrame:

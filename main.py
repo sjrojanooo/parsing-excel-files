@@ -1,6 +1,4 @@
-import pandas as pd
-from pandas import DataFrame
-import re
+from pandas import DataFrame, read_excel
 import importlib
 
 constants = importlib.import_module('etl.constants')
@@ -10,7 +8,7 @@ def main():
 
     updated_report_path = constants.updated_report_path
     commodity_list = constants.commodity_list
-    updated_report = pd.read_excel(updated_report_path)
+    updated_report = read_excel(updated_report_path)
     report_date = report_transformations.capture_report_date(updated_report)
     commodity_index_list = report_transformations.identify_commodity_title_locations(updated_report, commodity_list)
     product_df = DataFrame(commodity_index_list)
