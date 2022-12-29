@@ -17,3 +17,7 @@ Now that we are familiar with the processes, lets dive into the issue faced with
 3. Totals for each items in an aggregated format, summed up for the entire week. 
 
 ![Image](https://github.com/sjrojanooo/parsing-excel-files/blob/main/images/example_original_image.png)
+
+The goal is to convert the formatted document in the image above to achieve the format of the image below.
+
+![Image](https://github.com/sjrojanooo/parsing-excel-files/blob/main/images/reformatted_report.png)
