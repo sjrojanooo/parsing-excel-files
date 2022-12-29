@@ -45,7 +45,6 @@ def transform_final_df(updated_report: DataFrame, grouping_df: DataFrame, report
     return final_df
 
 def filter_out_bad_values(input_df: DataFrame) -> DataFrame: 
-    # rename the first column for a default values
     output_df = input_df.dropna(subset=[input_df.columns[0], input_df.columns[1], input_df.columns[2]])
     output_df = output_df[[output_df.columns[0], output_df.columns[1],output_df.columns[7], output_df.columns[8]]]
     output_df = output_df[output_df[output_df.columns[0]].isin(['Commodities']) == False]
