@@ -22,5 +22,5 @@ The goal is to convert the formatted document in the image above to achieve the 
 
 ![Image](https://github.com/sjrojanooo/parsing-excel-files/blob/main/images/reformatted_report.png)
 
-After successfully parsing the document and attaining the desired information, it brought me back to what is italicized in the introduction of this ReadMe. 
-"The items reported in automated report, were not normalized to how the items reported from the updated count. So, even if you wanted to join map items by the name, nearly everything would end up unmatched." It's a great feeling to be able to notice how the smallest mistake in design can have a cascadign affect throughout all levels of business processes. 
+After successfully parsing the document and reformatting updated counts, it brought me back to what is italicized in the introduction of this ReadMe. 
+"The items reported in automated report, were not normalized to how the items reported from the updated count. So, even if you wanted to join map items by the name, nearly everything would end up unmatched." It's a great feeling to be able to notice how the smallest mistake in design can have a cascading effect throughout all levels of business processes. 
