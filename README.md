@@ -25,3 +25,5 @@ The goal is to convert the formatted document in the image above to achieve the 
 
 After successfully parsing the document and reformatting updated counts, it brought me back to what is italicized in the introduction of this ReadMe. 
 "The items reported in automated report, were not normalized to how the items reported from the updated count. So, even if you wanted to join map items by the name, nearly everything would end up unmatched." Bad designs are innevitable and I'm sure I'll make the same mistake along the way, but this definitely taught me to really analyze and understand the data to it's most granular form. 
+
+After a few iterations I was able to identify the correct mapping for the updated report/billing report item descriptions to point #5 in under the ###Cooler Reporting/Validation. 
