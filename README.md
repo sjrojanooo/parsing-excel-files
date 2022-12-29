@@ -17,7 +17,7 @@ Now that we are familiar with the processes, lets dive into the issue faced with
 2. Commodity is listed above each section. 
 3. Totals for each items in an aggregated format, summed up for the entire week. 
 
-![Image](https://github.com/sjrojanooo/parsing-excel-files/blob/main/images/example_original_image.png)
+![Image](https://github.com/sjrojanooo/parsing-excel-files/blob/main/images/example-original-image.png)
 
 The goal is to convert the formatted document in the image above to achieve the format of the image below.
 
