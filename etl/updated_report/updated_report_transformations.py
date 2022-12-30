@@ -9,7 +9,7 @@ def capture_report_date(updated_report_df: DataFrame) -> str:
             value = str(updated_report_df.loc[i, column]).strip()
             if value != 'nan': 
                 # I use match here since the %Y-%m-%d format will always be at the beginning of the string. 
-                match_report_date = re.search(r'(\d{1,4}-\d{1,2}-\d{1,2})', value)
+                match_report_date = re.match(r'(\d{1,4}-\d{1,2}-\d{1,2})', value)
                 if match_report_date: 
                     report_date = match_report_date.group(0)
                     break
