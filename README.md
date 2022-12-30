@@ -5,6 +5,9 @@ Build the Docker Image - unless you have python and this pandas version installe
  * Docker build . - this will build the image, and assigns the cmd to be - "python3 main.py"
  * From your terminal/CLI in the projects directory an type in the command. 
  * Files should generate inside the cleaned and validated report data subdirectories. 
+ 
+# Unit Test 
+Uses the pytest package. To run unit test type in "python3 -m pytest" in the terminal from the root of the project.
   
 Excel File parsing with Pandas.
 A while back I was confronted with an issue that made validating a scraped report against a finalized report a manual task. I was faced with not only the way the documents format was, but also with the naming conventions that each product had under a given commodity. A little back-story before we dive in. The business followed a specific process when it came to reporting harvested vegetable products that were turned into the cooler, and it can be broken down in the following steps. *The items reported in automated report, were not normalized to how the items reported from the updated count. So, even if you wanted to join map items by the name, nearly everything would end up unmatched*. 
