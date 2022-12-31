@@ -41,7 +41,8 @@ def generate_index_dataframe(product_df: DataFrame) -> DataFrame:
     grouping_df = DataFrame(test_list)
     return grouping_df
 
-def transform_final_df(updated_report: DataFrame, grouping_df: DataFrame, report_date: str) -> DataFrame: 
+# join indexed_title dataframe to product names in each section. 
+def combine_titles_to_products(updated_report: DataFrame, grouping_df: DataFrame, report_date: str) -> DataFrame: 
     final_df = updated_report.join(grouping_df.set_index(0))
     final_df['report_date'] = report_date
     return final_df
