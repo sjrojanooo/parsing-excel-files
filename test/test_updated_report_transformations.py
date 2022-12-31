@@ -1,6 +1,6 @@
 import pytest
 from pandas import DataFrame
-from etl.updated_report import updated_report_transformations, constants
+from etl.updated_report import updated_report_transformations
 
 def test_capture_report_date():
     input_df = DataFrame({'col1':['','','','','',''],
@@ -12,7 +12,8 @@ def test_capture_report_date():
 
 def test_capture_commodity_titles():
     input_df = DataFrame({'col1':['','','Cauliflower','','','', 'Broccoli','','']})
-    output_df = updated_report_transformations.identify_commodity_title_locations(input_df, constants.commodity_list)
+    commodity_list = updated_report_transformations.commodity_list
+    output_df = updated_report_transformations.identify_commodity_title_locations(input_df, commodity_list)
     assert output_df.loc[0,output_df.columns[1]] == 'Cauliflower'
     assert output_df.loc[0, output_df.columns[0]] == 2
     assert output_df.loc[1,output_df.columns[1]] == 'Broccoli'
@@ -20,40 +21,30 @@ def test_capture_commodity_titles():
 
 def test_generate_index_dataframe():
     input_df = DataFrame({'col1':['','','Cauliflower','','','', 'Broccoli','','']})
-    titles_captured_df = updated_report_transformations.identify_commodity_title_locations(input_df, constants.commodity_list)
+    commodity_list = updated_report_transformations.commodity_list
+    titles_captured_df = updated_report_transformations.identify_commodity_title_locations(input_df, commodity_list)
     output_df = updated_report_transformations.generate_index_dataframe(titles_captured_df)
     assert len(output_df) == 4
 
-# def filter_out_bad_values(input_df: DataFrame) -> DataFrame: 
-#     output_df = input_df.dropna(subset=[input_df.columns[0], input_df.columns[1], input_df.columns[2]])
-#     output_df = output_df[[output_df.columns[0], output_df.columns[1],output_df.columns[7], output_df.columns[8]]]
-#     output_df = output_df[output_df[output_df.columns[0]].isin(['Commodities']) == False]
-#     output_df = output_df.loc[output_df[output_df.columns[0]].str[:5] != 'Total']
-#     return output_df 
+def test_filter_out_bad_values() -> DataFrame: 
+    input_df = DataFrame({'col1':['valid', None , 'Commodities', 'Total Broccoli', None, None],
+                         'col2':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
+                         'col3':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
+                         'col4':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
+                         'col5':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
+                         'col6':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
+                         'col7':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
+                         'col8':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
+                         'col9':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid']})
 
-# def rename_columns(input_df: DataFrame) -> DataFrame:
-#     output_df = input_df.rename(columns={input_df.columns[0]:'description', 
-#                                         input_df.columns[1]: 'packed', 
-#                                         input_df.columns[2]: 'commodity'})
-#     output_df = output_df[['report_date', 'commodity', 'description', 'packed']]
-#     return output_df
+    output_df = updated_report_transformations.filter_out_bad_values(input_df)
+    assert len(output_df) == 1
 
-# def write_out_file(input_df: DataFrame, path: str) -> None: 
-#     input_df.to_excel(path, index=False)
+def test_rename_columns() -> DataFrame: 
+    input_df = DataFrame({'col1':[''],
+                          'col2':[''],
+                          'col3':[''],
+                          'report_date':['']})
 
-
-# def read_box_labels(box_labels_path: str) -> DataFrame: 
-#     output_df = read_excel(box_labels_path)[['box_label', 'description']]
-#     return output_df    
-
-
-# def combined_reports(updated_report_df: DataFrame, automated_report_df: DataFrame) -> DataFrame:
-#     final_validation_report = updated_report_df.merge(automated_report_df, on=['report_date','box_label'], how='left')
-#     return final_validation_report
-
-# def transform_combined_df(final_df: DataFrame) -> DataFrame:
-#     output_df = final_df.copy()
-#     output_df = output_df[['report_date', 'commodity', 'description', 
-#                                                         'cooler_description', 'box_label','packed', 'cooler_quantity']]
-#     output_df['difference'] = output_df['cooler_quantity'] - output_df['packed']
-#     return output_df
+    output_df = updated_report_transformations.rename_columns(input_df)
+    assert output_df.columns.values.tolist() == ['report_date', 'commodity', 'description', 'packed']

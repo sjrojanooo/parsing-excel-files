@@ -5,6 +5,7 @@ from etl.updated_report import updated_report_transformations, constants
 from etl.automated_report import automated_report_transformations
 
 def main(): 
+    
     # report file paths
     base_path = './data'
     commodity_list = constants.commodity_list
