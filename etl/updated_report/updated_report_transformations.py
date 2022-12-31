@@ -1,6 +1,13 @@
 import re
 from pandas import DataFrame, read_excel
 
+# constants
+# commodity list 
+commodity_list = ['Cauliflower', 'Cauliflower Organic', 'Wrap', 'Wrap Organic','Naked Flat Pack Lettuce',
+       'Romaine Hearts','Romaine Hearts Organic','Romaine Flat Pack','Romaine Flat Pack Organic',
+       'Romaine Cellos','Mix Leaf','Mix Leaf Organic','Mix Leaf Cellos','Broccoli','Broccoli Organic',
+       'Mix Vegetables Rates','Broccoli Bulk Organic']
+
 # locate the date reported anywhere on the page, in case of any format changes. 
 def capture_report_date(updated_report_df: DataFrame) -> str:
     report_date = None
