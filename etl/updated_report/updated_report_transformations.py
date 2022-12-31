@@ -26,8 +26,7 @@ def capture_report_date(updated_report_df: DataFrame) -> str:
 # return tuples/set of commodity and index
 def identify_commodity_title_locations(updated_report_df: DataFrame, commodity_list: list) -> DataFrame:
     commodity_and_index_set = []; 
-    max_row = len(updated_report_df) -1 
-    print(max_row)
+    max_row = len(updated_report_df) - 1 
     for i in range(0, len(updated_report_df)):
         for column in updated_report_df.columns: 
             commodity = str(updated_report_df.loc[i, column]).strip()
@@ -42,8 +41,8 @@ def identify_commodity_title_locations(updated_report_df: DataFrame, commodity_l
 # capture indexes between next commodity
 def generate_index_dataframe(product_df: DataFrame) -> DataFrame:
     test_list = []; 
-    for i in range(0,len(product_df) -1):
-        for x in range(int(product_df.loc[i, 0]), int(product_df.loc[i+1, 0]) -1):
+    for i in range(0,len(product_df) - 1):
+        for x in range(int(product_df.loc[i, 0]), int(product_df.loc[i+1, 0]) - 1):
             test_list.append((x, str(product_df.loc[i, 1])))
     grouping_df = DataFrame(test_list)
     return grouping_df

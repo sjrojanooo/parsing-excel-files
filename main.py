@@ -1,14 +1,14 @@
 import os
 from pandas import DataFrame, read_excel
 
-from etl.updated_report import updated_report_transformations, constants
+from etl.updated_report import updated_report_transformations
 from etl.automated_report import automated_report_transformations
 
 def main(): 
     
     # report file paths
     base_path = './data'
-    commodity_list = constants.commodity_list
+    commodity_list = updated_report_transformations.commodity_list
     updated_report_path = os.path.join(base_path, 'updated-cooler-counts/weekly-validation.xlsx')
     combined_report_path = os.path.join(base_path, 'automated-cooler-totals/combined-report.xlsx')
     box_labels_path = os.path.join(base_path, 'box-labels/box_labels.xlsx')
@@ -21,6 +21,8 @@ def main():
     final_updated_report = updated_report_transformations.combine_titles_to_products(updated_report, grouping_df, report_date) 
     final_updated_report = updated_report_transformations.filter_out_bad_values(final_updated_report)
     final_updated_report = updated_report_transformations.rename_columns(final_updated_report)
+    total_product_count = final_updated_report['description'].count()
+    print(f'Total products reported in the updated count: {total_product_count}')
     updated_report_transformations.write_out_file(final_updated_report, './data/cleaned-report/clean-updated-counts.xlsx')
 
     # box labels for description mapping

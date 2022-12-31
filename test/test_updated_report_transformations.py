@@ -26,7 +26,7 @@ def test_generate_index_dataframe():
     output_df = updated_report_transformations.generate_index_dataframe(titles_captured_df)
     assert len(output_df) == 4
 
-def test_filter_out_bad_values() -> DataFrame: 
+def test_filter_out_bad_values(): 
     input_df = DataFrame({'col1':['valid', None , 'Commodities', 'Total Broccoli', None, None],
                          'col2':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
                          'col3':['valid', 'invalid', 'invalid', 'invalid', 'invalid','invalid'],
@@ -40,7 +40,7 @@ def test_filter_out_bad_values() -> DataFrame:
     output_df = updated_report_transformations.filter_out_bad_values(input_df)
     assert len(output_df) == 1
 
-def test_rename_columns() -> DataFrame: 
+def test_rename_columns(): 
     input_df = DataFrame({'col1':[''],
                           'col2':[''],
                           'col3':[''],
