@@ -17,7 +17,7 @@ def main():
     report_date = updated_report_transformations.capture_report_date(updated_report)
     product_df = updated_report_transformations.identify_commodity_title_locations(updated_report, commodity_list)
     grouping_df = updated_report_transformations.generate_index_dataframe(product_df)
-    final_updated_report = updated_report_transformations.transform_final_df(updated_report, grouping_df, report_date) 
+    final_updated_report = updated_report_transformations.combine_titles_to_products(updated_report, grouping_df, report_date) 
     final_updated_report = updated_report_transformations.filter_out_bad_values(final_updated_report)
     final_updated_report = updated_report_transformations.rename_columns(final_updated_report)
     updated_report_transformations.write_out_file(final_updated_report, './data/cleaned-report/clean-updated-counts.xlsx')
